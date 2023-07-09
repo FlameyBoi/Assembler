@@ -255,7 +255,7 @@ int parseDir(char* line, int index, char* label, parsingTable* table)
 	return 0;
 }
 
-/*parses a list of number following the .data directive*/
+/*parses a list of numbers following the .data directive*/
 int parseData(char* lineCpy, parsingTable* table)
 {
 	bool negative = false;
@@ -504,7 +504,7 @@ int parseCmd(char* line, int index, char* label, parsingTable* table)
 	insertCmdSymbol(label, table); /*insert related symbol*/
 	while (isspace(*line)) line++;
 	line = line + strlen(OPCODE[index]); /*skip over op name*/
-	if (cmdHandler(table, line, index) == -1) /*call op handlers - checks proper syntax - arg types, number and makes entries in data array*/
+	if (cmdHandler(table, line, index) == -1) /*call op handlers - checks proper syntax - arg types, numbers and makes entries in data array*/
 	{
 		error = true;
 		free(lineCpy);
